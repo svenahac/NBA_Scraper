@@ -26,6 +26,7 @@ public class MainTest {
     public void setUp() {
 
         // Initialize the webdriver
+        System.setProperty("webdriver.gecko.driver", "geckodriver");
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -49,7 +50,7 @@ public class MainTest {
         String[] player_links = generateLinks();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         // Flag that will let us know if a player doesn't meet the required average
-        float flag = 0f;
+        int flag = 0;
 
         // Iterating over the player links and opening them then calculating 3 point average
         for (int i = 0; i < player_links.length; i++) {
